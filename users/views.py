@@ -2,9 +2,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .form import UserForm, ProfileForm
-from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
@@ -16,15 +16,12 @@ def userlogin(req):
         username = req.POST['username']
         password = req.POST['password']
 
-        try:
-            user = User.objects.get(username=username)
-        except:
-            messages.error('username does not exist')
-
         user = authenticate(req, username=username, password=password)
         if user != None:
             login(req, user)
             return redirect('all-articles')
+        else:
+            messages.error(req, 'Username OR password is incorrect')
 
     return render(req, 'login.html')
 
@@ -43,7 +40,7 @@ def userRegister(req):
             login(req, user)
             return redirect('all-articles')     # redirect to edit
         else:
-            messages.error(req, 'User account not valid, try again')
+            messages.error(req, 'Invalid info')
 
     context = {'form': form}
     return render(req, 'register.html', context)

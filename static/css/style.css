@@ -115,7 +115,6 @@ header {
     flex-direction: column;
     
     background: var(--bold);
-    /* background: linear-gradient(0deg, var(--bold) 0%, #6ca4b0 100%); */
     background-image: url('../images/happy-intersection.svg');
     background-repeat: repeat;
     background-size: 7rem;
@@ -173,4 +172,20 @@ nav div.active img {
     display: flex;
     gap: 1rem;
     align-items: center;
+}
+
+/* ***********
+*   Messages
+*/
+.alert {
+    margin: 1rem 0;
+    padding: 1rem;
+    font-weight: bold;
+    text-align: center;
+
+    background-color: var(--bold);
+    background-image: url('../images/happy-intersection.svg');
+    background-repeat: repeat;
+    background-size: 7rem;
+    color: var(--body);
 }
