@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<section>
+  {% if request.user.profile.id == user.id %}
+  <a href="{% url 'user-edit' %}"><img src="{% static 'icons/edit.svg' %}" alt="Edit profile"></a>
+  <a href="{% url 'user-logout' %}"><img src="{% static 'icons/logout.svg' %}" alt="Log out"></a>
+  {% else %}
+  <h3 class="bold2">User Profile</h3>
+  {% endif %}
+
+  <h2>{{user}}</h2>
+  <p>{{user.bio}}</p>
+
+
+  {% for article in articles %}
+  <a href="{% url 'single-article' article.id %}">
+    <div class="card">
+      <p class="bold">{{article.title}}</p>
+      <p>{{article.description}}</p>
+    </div>
+  </a>
+  {% endfor %}
+</section>
+
+{% endblock %}

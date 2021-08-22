@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<section>
+  {% for article in articles %}
+  <a href="{% url 'single-article' article.id %}">
+    <div class="card">
+      <p class="bold">{{article.title}}</p>
+      <p>{{article.description}}</p>
+    </div>
+  </a>
+  {% endfor %}
+</section>
+
+{% endblock content %}

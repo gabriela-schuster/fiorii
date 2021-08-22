@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="single-article">
+
+  <div class="controls">
+    <span class="bold2">By <a href="{% url 'settings' article.author.id %}">{{article.author}}</a></span>
+
+    {% if article.author.user.id == request.user.id %}
+    <a href="{% url 'edit-article' article.id %}">
+      <img src="{% static 'icons/edit.svg' %}" alt="">
+    </a>
+    <a href="{% url 'delete-article' article.id %}">
+      <img src="{% static 'icons/delete.svg' %}" alt="">
+    </a>
+    {% endif %}
+
+  </div>
+
+  <h2>{{article.title}}</h2>
+  <p class="bold">{{article.description}}</p>
+  <article>{{article.body_text}}</article>
+</section>
+
+{% endblock %}

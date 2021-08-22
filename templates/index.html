@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiori | Talk With Everyone</title>
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    {% if request.user.is_authenticated %}
+    <p>{{request.user.profile.user.username}}</p>
+    <p>{{request.user.profile.bio}}</p>
+    <!-- <img src="{% static 'icons/flame.svg' %}" alt="level 1 icon"> -->
+
+    {% else %}
+    <p>Hello, stranger</p>
+    <p><a href="{% url 'user-login' %}">Login</a></p>
+    {% endif %}
+  </header>
+
+
+  <!-- TODO: try to make a module inside module, dinamic class active -->
+  <nav>
+    <a href="{% url 'all-articles' %}">
+      <div>
+        <!-- class="active" -->
+        <img src="{% static 'icons/all.svg' %}" alt="globe">
+      </div>
+    </a>
+    <!-- <a href="#">
+      <div>
+        <img src="{% static 'icons/friends.svg' %}" alt="group of friends">
+      </div>
+    </a> -->
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'create-article' %}">
+      <div>
+        <img src="{% static 'icons/create.svg' %}" alt="add article">
+      </div>
+    </a>
+    <a href="{% url 'settings' request.user.profile.id %}">
+      <div>
+        <img src="{% static './icons/settings.svg' %}" alt="settings">
+      </div>
+    </a>
+    {% endif %}
+  </nav>
+
+  <main>
+
+    {% block content %}
+
+    {% endblock content %}
+  </main>
+</body>
+
+</html>

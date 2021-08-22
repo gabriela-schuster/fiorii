@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section class="delete">
+  <h2>Delete?</h2>
+  <p>Are you sure you want to delete your article '{{ article.title }}' ?</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="button">
+    <a href="{% url 'all-articles' %}" class="button-ghost">No, go back</a>
+  </form>
+</section>
+
+{% endblock %}

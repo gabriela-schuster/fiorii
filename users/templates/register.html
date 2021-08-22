@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section>
+  <h2>Register</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    {% for field in form %}
+    <label class="bold">{{field.label}}</label>
+    {{field}}
+    {% endfor %}
+
+    <input class="button" type="submit" value="Submit">
+  </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section>
+  <p>New user? <a class="bold2" href="{% url 'user-register' %}">Sign Up</a></p>
+  <h2>Login</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <label for="username">Username</label>
+    <input class="input" type="text" name="username" id="username" />
+
+    <label for="password">Password</label>
+    <input class="input" type="password" name="password" id="password" />
+
+    <input type="submit" value="Submit" class="button">
+  </form>
+
+</section>
+
+{% endblock %}
