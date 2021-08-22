@@ -1,1 +1,1 @@
-web: gunicorn fiori.wsgi:application --log-file -
+web: gunicorn fiori.wsgi
