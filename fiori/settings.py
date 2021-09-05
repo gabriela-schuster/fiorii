@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'fiorii',
-        'HOST': 'https://fiorii.herokuapp.com/',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
         'USER': 'indigomysql',
         'PASSWORD': env('PASSWORD'),
