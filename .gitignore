@@ -1,2 +1,6 @@
 fiori/.env
 db.sqlite3
+bin/
+lib/
+pyvenv.cfg
+.vscode
