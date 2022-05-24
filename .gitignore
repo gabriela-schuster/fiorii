@@ -1,7 +1,7 @@
 fiori/.env
 db.sqlite3
-bin/
-lib/
+venv/
 pyvenv.cfg
 .vscode
-fiori/__pycache__
+__pycache__/
+*/__pycache__/

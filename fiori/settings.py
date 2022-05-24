@@ -76,13 +76,9 @@ WSGI_APPLICATION = 'fiori.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fiorii',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'indigomysql',
-        'PASSWORD': env('PASSWORD'),
+	'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
     }
 }
 
