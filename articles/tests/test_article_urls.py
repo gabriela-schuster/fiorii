@@ -13,3 +13,4 @@ class ArticleURLsTest(TestCase):
 	def test_single_article_url_is_correct(self):
 		url = reverse('single-article', args=('2d72f5b3-cf5a-4567-beb9-c3cbb13aca03',))
 		self.assertEqual(url, '/article/2d72f5b3-cf5a-4567-beb9-c3cbb13aca03/')
+
